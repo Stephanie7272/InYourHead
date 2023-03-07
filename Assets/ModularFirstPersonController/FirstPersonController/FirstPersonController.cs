@@ -8,15 +8,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 #if UNITY_EDITOR
-    using UnityEditor;
+using UnityEditor;
     using System.Net;
 #endif
 
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
+
+    public TextMeshProUGUI interactText;
+    public float interactionRange;
 
     #region Camera Movement Variables
 
@@ -141,6 +145,9 @@ public class FirstPersonController : MonoBehaviour
         playerCamera.fieldOfView = fov;
         originalScale = transform.localScale;
         jointOriginalPos = joint.localPosition;
+
+        // Set interact message to false
+        interactText.gameObject.SetActive(false);
 
         if (!unlimitedSprint)
         {
@@ -362,6 +369,27 @@ public class FirstPersonController : MonoBehaviour
         {
             HeadBob();
         }
+
+        // Interact with objects using a raycast
+        #region Interact
+        RaycastHit hit;
+        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, interactionRange))
+        {
+            iInteractable target = hit.transform.GetComponent<iInteractable>();
+            if (target != null)
+            {
+                interactText.gameObject.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    target.Interact();
+                }
+            }
+        }
+        else
+        {
+            interactText.gameObject.SetActive(false);
+        }
+        #endregion
     }
 
     void FixedUpdate()
@@ -728,8 +756,20 @@ public class FirstPersonController : MonoBehaviour
 
         #endregion
 
+        #region Interactions
+
+        EditorGUILayout.Space();
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+        GUILayout.Label("Interaction", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
+        EditorGUILayout.Space();
+
+        fpc.interactText = (TextMeshProUGUI)EditorGUILayout.ObjectField(new GUIContent("Interact Message", "Message displayed when looking at interactable objects."), fpc.interactText, typeof(TextMeshProUGUI), true);
+        fpc.interactionRange = EditorGUILayout.Slider(new GUIContent("Interaction Range", "How close the player must be to interact with objects."), fpc.interactionRange, .1f, 100f);
+
+        #endregion
+
         //Sets any changes from the prefab
-        if(GUI.changed)
+        if (GUI.changed)
         {
             EditorUtility.SetDirty(fpc);
             Undo.RecordObject(fpc, "FPC Change");
