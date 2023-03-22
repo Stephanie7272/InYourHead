@@ -73,7 +73,7 @@ Material:
     - _DstBlend: 1
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
-    - _Fres_Power: 0.44
+    - _Fres_Power: -4.3
     - _OpaqueCullMode: 2
     - _RayTracing: 0
     - _ReceivesSSR: 1
@@ -113,7 +113,7 @@ Material:
     - _DirectionCloud: {r: 0.23, g: 0.11, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Fres_Color: {r: 2.8683167, g: 0, b: 20.234581, a: 0.8509804}
+    - _Fres_Color: {r: 0.8716354, g: 0, b: 0, a: 0.8509804}
     - _Vector3: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5893687132834493018
