@@ -5,116 +5,145 @@ using TMPro;
 using System;
 using Unity.Mathematics;
 using Random = Unity.Mathematics.Random;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
+using Unity.VisualScripting;
+using UnityEngine.Profiling;
 
 public class HeartRateController : MonoBehaviour
 {
-
+    #region Variables
     [SerializeField] TextMeshProUGUI hr_UI;
     [SerializeField] TextMeshProUGUI hr_Text;
-    [SerializeField] int hr_Current;
-    [SerializeField] int hr_Min;
-    [SerializeField] int hr_Max;
+    [SerializeField] int currentHeartRate;
+    [SerializeField] int minHeartRate;
+    [SerializeField] int maxHeartRate;
     int hr_UpdateInt;
     int hr_idleMin;
     int hr_idleMax;
-    [SerializeField] int hr_UpdateMax = 8;
-    [SerializeField] int hr_UpdateMin = 7;
-    [SerializeField] float hr_UpdateSpeed;
+    [SerializeField] int maxUpdateInterval;
+    [SerializeField] int minUpdateInterval;
+    [SerializeField] float monitorUpdateSpeed;
     [SerializeField] float fadeSpeed;
-
+    public bool fadingIn;
+    public bool isIncreasing;
+    public bool flatlined = false;
     [SerializeField] int callCounter = 0;
+    float time;
+
+
+    public Volume Volume;
+    public bool enableVig;
+    public bool overrideVig;
+    #endregion
 
     private void Awake()
     {
-        hr_UI.alpha = 1;
-        hr_Text.alpha = 1;
-        hr_idleMin = hr_Min - 5;
-        hr_idleMax = hr_Min + 5;
+        hr_UI.alpha = 0;
+        hr_Text.alpha = 0;
+        hr_idleMin = minHeartRate - 5;
+        hr_idleMax = minHeartRate + 5;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        StartCoroutine(Decrease());
+        VolumeProfile profile = Volume.sharedProfile;
+        if (!profile.TryGet<Vignette>(out var vig))
+        {
+            vig = profile.Add<Vignette>(false);
+        }
+
+        vig.intensity.Override(0.5f);
+
+
     }
 
-    public void UpdateUI()
+    private void Update()
     {
-        hr_UI.text = hr_Current.ToString();
+        if(flatlined == false)
+        {
+            time += Time.deltaTime;
+            if (time > monitorUpdateSpeed)
+            {
+                time -= monitorUpdateSpeed;
+                if (isIncreasing == true)
+                {
+                    if (currentHeartRate == maxHeartRate)
+                    {
+                        Flatline();
+                    }
+                    else
+                    {
+                        Increase();
+                    }
+                }
+                else if (isIncreasing == false)
+                {
+                    if (callCounter == 0)
+                    {
+                        Idle();
+                    }
+                    else
+                    {
+                        Decrease();
+                    }
+                }
+                UpdateUI();
+            }
+        }
+        
     }
 
-    public IEnumerator Increase()
+    private void Flatline()
+    {
+        flatlined = true;
+        currentHeartRate = 0;
+    }
+
+    private void UpdateUI()
+    {
+        hr_UI.text = currentHeartRate.ToString();
+    }
+    
+    private void Increase()
     {
         callCounter++;
-        hr_UpdateInt = UnityEngine.Random.Range(hr_UpdateMin, hr_UpdateMax) * callCounter;
-        hr_Current += hr_UpdateInt;
-        if(hr_Current > hr_Max)
+        hr_UpdateInt = UnityEngine.Random.Range(minUpdateInterval, maxUpdateInterval) * callCounter;
+        currentHeartRate += hr_UpdateInt;
+        if (currentHeartRate > maxHeartRate)
         {
-            hr_Current = hr_Max;
-        }
-        UpdateUI();
-        yield return new WaitForSeconds(hr_UpdateSpeed);
-        if(hr_Current < hr_Max)
-        {
-            StartCoroutine(Increase());
-        }
-        else if(hr_Current == hr_Max)
-        {
-            Death();
+            currentHeartRate = maxHeartRate;
         }
     }
-
-    public IEnumerator Decrease()
+    
+    private void Decrease()
     {
-        if(callCounter > 1)
+        if (callCounter > 1)
         {
             callCounter--;
         }
-        hr_UpdateInt = UnityEngine.Random.Range(hr_UpdateMin, hr_UpdateMax) * callCounter * 2;
-        hr_Current -= hr_UpdateInt;
-        if (hr_Current < hr_Min)
+        hr_UpdateInt = UnityEngine.Random.Range(minUpdateInterval, maxUpdateInterval) * callCounter;
+        currentHeartRate -= hr_UpdateInt;
+        if (currentHeartRate < minHeartRate)
         {
-            hr_Current = hr_Min;
-        }
-        UpdateUI();
-        yield return new WaitForSeconds(hr_UpdateSpeed);
-        if (hr_Current > hr_Min)
-        {
-            StartCoroutine(Decrease());
-        }
-        else if(hr_Current == hr_Min)
-        {
+            currentHeartRate = minHeartRate;
             callCounter = 0;
-            StartCoroutine(Idle());
         }
     }
-
-    public IEnumerator Idle()
+   
+    private void Idle()
     {
-        hr_Current = UnityEngine.Random.Range(hr_idleMin, hr_idleMax);
-        UpdateUI();
-        yield return new WaitForSeconds(hr_UpdateSpeed);
-        if(callCounter == 0)
+        currentHeartRate = UnityEngine.Random.Range(hr_idleMin, hr_idleMax);
+    }
+
+    public void FadeIn()
+    {
+        if (hr_UI.alpha < 1 && hr_Text.alpha < 1)
         {
-            StartCoroutine(Idle());
+            hr_UI.alpha += Time.deltaTime;
+            hr_Text.alpha += Time.deltaTime;
         }
-    }
-
-    public void Death()
-    {
-        hr_Current = 0;
-        UpdateUI();
-    }
-
-    public IEnumerator FadeIn()
-    {
-        hr_UI.alpha += 0.01f;
-        hr_Text.alpha += 0.01f;
-        yield return new WaitForSeconds(fadeSpeed);
-        if(hr_UI.alpha < 1 || hr_Text.alpha < 1)
-        {
-            StartCoroutine(FadeIn());
-        }
+        
     }
 
     public IEnumerator FadeOut()
@@ -122,7 +151,7 @@ public class HeartRateController : MonoBehaviour
         hr_UI.alpha -= 0.01f;
         hr_Text.alpha -= 0.01f;
         yield return new WaitForSeconds(fadeSpeed);
-        if (hr_UI.alpha < 1 || hr_Text.alpha < 1)
+        if (hr_UI.alpha > 0 && hr_Text.alpha > 0 && fadingIn != true)
         {
             StartCoroutine(FadeOut());
         }
