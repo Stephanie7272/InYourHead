@@ -8,9 +8,9 @@ public class RotateEnemy : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.tag == "Enemy")
         {
-            Enemy.transform.Rotate(0.0f, 90.0f, 0.0f, Space.Self);
+            Enemy.transform.localRotation = Quaternion.Euler(0, 90, 0);
         }
 
     }

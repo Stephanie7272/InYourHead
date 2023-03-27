@@ -10,7 +10,6 @@ public class HallwayTrigger : MonoBehaviour
     public MeshRenderer SpawnerMesh;
     public Collider SpawnerCollider;
 
-
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
