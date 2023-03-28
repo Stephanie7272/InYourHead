@@ -32,9 +32,9 @@ public class HeartRateController : MonoBehaviour
     float time;
 
 
-    public Volume Volume;
-    public bool enableVig;
-    public bool overrideVig;
+    //public Volume Volume;
+    //public bool enableVig;
+    //public bool overrideVig;
     #endregion
 
     private void Awake()
@@ -45,18 +45,18 @@ public class HeartRateController : MonoBehaviour
         hr_idleMax = minHeartRate + 5;
     }
 
-    private void Start()
-    {
-        VolumeProfile profile = Volume.sharedProfile;
-        if (!profile.TryGet<Vignette>(out var vig))
-        {
-            vig = profile.Add<Vignette>(false);
-        }
+    //private void Start()
+    //{
+    //    VolumeProfile profile = Volume.sharedProfile;
+    //    if (!profile.TryGet<Vignette>(out var vig))
+    //    {
+    //        vig = profile.Add<Vignette>(false);
+    //    }
 
-        vig.intensity.Override(0.5f);
+    //    vig.intensity.Override(0.5f);
 
 
-    }
+    //}
 
     private void Update()
     {
