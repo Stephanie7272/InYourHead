@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 489711113}
   - component: {fileID: 489711115}
   m_Layer: 0
-  m_Name: Heart rate
+  m_Name: Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 155
+  m_text: 75
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -156,9 +156,10 @@ MonoBehaviour:
   maxUpdateInterval: 13
   minUpdateInterval: 12
   monitorUpdateSpeed: 1.5
-  fadeSpeed: 0.001
+  fadeSpeed: 0.1
   fadingIn: 0
   isIncreasing: 0
+  flatlined: 0
   callCounter: 0
 --- !u!1 &913219084
 GameObject:
@@ -345,7 +346,7 @@ GameObject:
   - component: {fileID: 1434905988}
   - component: {fileID: 1434905987}
   m_Layer: 0
-  m_Name: Heart rate (1)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

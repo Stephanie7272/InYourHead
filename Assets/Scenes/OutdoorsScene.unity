@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 261.8028, g: 324.33075, b: 429.2505, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1652,30 +1652,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 489711111, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_Name
-      value: Number
-      objectReference: {fileID: 0}
-    - target: {fileID: 489711113, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_text
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 489711115, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: Volume
-      value: 
-      objectReference: {fileID: 44772587}
-    - target: {fileID: 489711115, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_Volume
-      value: 
-      objectReference: {fileID: 44772587}
-    - target: {fileID: 489711115, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: fadeSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434905985, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_Name
-      value: Text
-      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_RootOrder
