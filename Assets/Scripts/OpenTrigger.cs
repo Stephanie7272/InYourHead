@@ -10,13 +10,23 @@ public class OpenTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        StartCoroutine("Example");
+IEnumerator Example()
+{
+     if (other.CompareTag("Player"))
         {
             if (openTrigger)
             {
-                DoorV3.Play("OpenDoorV3", 0 , 0.0f);
-                gameObject.SetActive(false);
+                
+                
+                    yield return new WaitForSeconds(5);
+                    DoorV3.Play("OpenDoorV3", 0 , 0.0f);
+                    gameObject.SetActive(false);
+                
+                
             }
         }
+}
+       
     }
 }
