@@ -15,7 +15,7 @@ public class HeartRateController : MonoBehaviour
     #region Variables
     [SerializeField] TextMeshProUGUI hr_UI;
     [SerializeField] TextMeshProUGUI hr_Text;
-    [SerializeField] int currentHeartRate;
+    public int currentHeartRate;
     [SerializeField] int minHeartRate;
     [SerializeField] int maxHeartRate;
     int hr_UpdateInt;
@@ -28,8 +28,11 @@ public class HeartRateController : MonoBehaviour
     public bool fadingIn;
     public bool isIncreasing;
     public bool flatlined = false;
+    public bool atRest;
     [SerializeField] int callCounter = 0;
     float time;
+
+    //public SoundManager soundManager;
 
 
     //public Volume Volume;
@@ -43,6 +46,8 @@ public class HeartRateController : MonoBehaviour
         hr_Text.alpha = 0;
         hr_idleMin = minHeartRate - 5;
         hr_idleMax = minHeartRate + 5;
+
+        //soundManager = soundManager.GetComponent<SoundManager>();
     }
 
     //private void Start()
@@ -89,6 +94,7 @@ public class HeartRateController : MonoBehaviour
                     }
                 }
                 UpdateUI();
+                //soundManager.HeartBeat();
             }
         }
         
@@ -98,6 +104,7 @@ public class HeartRateController : MonoBehaviour
     {
         flatlined = true;
         currentHeartRate = 0;
+        //soundManager.PlaySound(soundManager.flatline);
     }
 
     private void UpdateUI()
