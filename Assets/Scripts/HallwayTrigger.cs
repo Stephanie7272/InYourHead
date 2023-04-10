@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HallwayTrigger : MonoBehaviour
 {
-    public MeshRenderer EnemyMesh;
+    public SkinnedMeshRenderer EnemyMesh;
     public Collider EnemyCollider;
     public EnemyController EnemyController;
     public MeshRenderer SpawnerMesh;
