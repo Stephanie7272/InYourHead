@@ -27,8 +27,8 @@ public class HeartRateController : MonoBehaviour
     [SerializeField] float fadeSpeed;
     public bool fadingIn;
     public bool isIncreasing;
-    public bool flatlined = false;
-    public bool atRest;
+    public bool flatlined;
+    public bool idle;
     [SerializeField] int callCounter = 0;
     float time;
 
@@ -46,6 +46,9 @@ public class HeartRateController : MonoBehaviour
         hr_Text.alpha = 0;
         hr_idleMin = minHeartRate - 5;
         hr_idleMax = minHeartRate + 5;
+
+        flatlined = false;
+        idle = false;
         soundManager = soundManager.GetComponent<SoundManager>();
     }
 
@@ -96,6 +99,10 @@ public class HeartRateController : MonoBehaviour
                 soundManager.HeartBeat();
             }
         }
+        else if(flatlined == true)
+        {
+            soundManager.HeartBeat();
+        }
         
     }
 
@@ -112,6 +119,7 @@ public class HeartRateController : MonoBehaviour
     
     private void Increase()
     {
+        idle = false;
         callCounter++;
         hr_UpdateInt = UnityEngine.Random.Range(minUpdateInterval, maxUpdateInterval) * callCounter;
         currentHeartRate += hr_UpdateInt;
@@ -123,6 +131,7 @@ public class HeartRateController : MonoBehaviour
     
     private void Decrease()
     {
+        idle = false;
         if (callCounter > 1)
         {
             callCounter--;
@@ -138,6 +147,7 @@ public class HeartRateController : MonoBehaviour
    
     private void Idle()
     {
+        idle = true;
         currentHeartRate = UnityEngine.Random.Range(hr_idleMin, hr_idleMax);
     }
 

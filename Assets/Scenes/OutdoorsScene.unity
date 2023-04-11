@@ -22065,9 +22065,25 @@ PrefabInstance:
       propertyPath: clearColorMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1393595890, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393595890, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1874821125, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057473239, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057473239, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
