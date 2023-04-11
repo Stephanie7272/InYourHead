@@ -86,7 +86,7 @@ Material:
     - _DstBlend: 1
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
-    - _Fres_Power: 0.25
+    - _Fres_Power: 0.75
     - _OpaqueCullMode: 2
     - _RayTracing: 0
     - _ReceivesSSR: 1
