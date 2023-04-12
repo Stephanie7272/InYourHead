@@ -44,7 +44,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1052155806272159637
 MonoBehaviour:
@@ -58,3 +58,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0971ef17498c744a030dc0abd14e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashlight: {fileID: 0}
+  mesh: {fileID: 0}

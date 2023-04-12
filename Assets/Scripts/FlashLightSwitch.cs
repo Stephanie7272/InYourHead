@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlashLightSwitch : MonoBehaviour
 {
     [SerializeField] GameObject LightSwitch;
-    private bool FlashLightActive = false;
+    public bool FlashLightActive = false;
     
     public AudioSource clickSound;
 
