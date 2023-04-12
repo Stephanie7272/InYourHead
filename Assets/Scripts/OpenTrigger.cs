@@ -28,7 +28,7 @@ public class OpenTrigger : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
             DoorV3.Play("OpenDoorV3", 0 , 0.0f);
             gameObject.SetActive(false);
         }
