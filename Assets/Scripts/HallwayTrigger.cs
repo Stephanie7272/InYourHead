@@ -9,6 +9,7 @@ public class HallwayTrigger : MonoBehaviour
     public EnemyController EnemyController;
     public MeshRenderer SpawnerMesh;
     public Collider SpawnerCollider;
+    public GameObject RoomShadows;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -19,6 +20,7 @@ public class HallwayTrigger : MonoBehaviour
             EnemyController.enabled = true;
             SpawnerMesh.enabled = false;
             SpawnerCollider.enabled = false;
+            RoomShadows.SetActive(false);
 
         }
     }
