@@ -17809,7 +17809,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1007850102}
-  - {fileID: 1907517650}
   - {fileID: 1399090498}
   m_Father: {fileID: 1292234194}
   m_RootOrder: -1
@@ -25634,7 +25633,7 @@ GameObject:
   - component: {fileID: 1003721823}
   - component: {fileID: 1003721822}
   - component: {fileID: 1003721821}
-  - component: {fileID: 1003721820}
+  - component: {fileID: 1003721826}
   m_Layer: 0
   m_Name: Puz2Interaction
   m_TagString: Untagged
@@ -25642,19 +25641,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1003721820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003721819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66463493ce3e967499a19286aa983afb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanvasPuzzleTwo: {fileID: 1399090494}
 --- !u!65 &1003721821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25666,8 +25652,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.114148, y: 2.220446e-16, z: 10.182532}
-  m_Center: {x: -0.057106856, y: 0, z: 0.091328755}
+  m_Size: {x: 10.114148, y: 2.220446e-16, z: 21.137283}
+  m_Center: {x: -0.057107076, y: 0, z: -0.91948557}
 --- !u!64 &1003721822
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25746,6 +25732,19 @@ Transform:
   m_Father: {fileID: 1007850102}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 269.72, z: 0}
+--- !u!114 &1003721826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003721819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66463493ce3e967499a19286aa983afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanvasPuzzleTwo: {fileID: 1399090494}
 --- !u!1 &1007850101
 GameObject:
   m_ObjectHideFlags: 0
@@ -48999,132 +48998,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 58ac32c2ced9a1143b18154b6c1af155, type: 3}
---- !u!1 &1907517645
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1907517650}
-  - component: {fileID: 1907517649}
-  - component: {fileID: 1907517648}
-  - component: {fileID: 1907517647}
-  - component: {fileID: 1907517646}
-  - component: {fileID: 1907517651}
-  m_Layer: 0
-  m_Name: OLDPuzzleTwoPaper
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &1907517646
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907517645}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10.114148, y: 2.220446e-16, z: 10.182532}
-  m_Center: {x: -0.057106856, y: 0, z: 0.091328755}
---- !u!64 &1907517647
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907517645}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1907517648
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907517645}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 97ee30a759dd7dd4183b9dfad43bc704, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1907517649
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907517645}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1907517650
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907517645}
-  m_LocalRotation: {x: -0, y: 0.70882964, z: -0, w: -0.7053797}
-  m_LocalPosition: {x: -650.275, y: -307.2348, z: 0.956}
-  m_LocalScale: {x: -0.030448992, y: 1, z: -0.022729432}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 683526373}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 269.72, z: 0}
---- !u!114 &1907517651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907517645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66463493ce3e967499a19286aa983afb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanvasPuzzleTwo: {fileID: 1399090494}
 --- !u!4 &1907670557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1052155806272159636, guid: 215b081b1cc6c6945a9fe0c3c46bb230,
