@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpKey : MonoBehaviour
+public class PickUpKey : MonoBehaviour, iInteractable
 {
     public Component doorOpenObject;
     public GameObject GetKeyObject;
@@ -17,15 +17,10 @@ public class PickUpKey : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void OnTriggerStay()
+    public void Interact()
     {
-        PickUpText.SetActive(true);
-
-        if(Input.GetKey(KeyCode.E))
-        {
             doorOpenObject.GetComponent<BoxCollider>().enabled = true;
             GetKeyObject.SetActive(false);
             Enemies.SetActive(true);
-        }
     }
 }

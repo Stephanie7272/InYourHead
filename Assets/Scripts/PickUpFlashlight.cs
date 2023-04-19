@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpFlashlight : MonoBehaviour
+public class PickUpFlashlight : MonoBehaviour, iInteractable
 {
     public GameObject FlashLightOnPlayer;
     public GameObject PickUpText;
@@ -14,19 +14,9 @@ public class PickUpFlashlight : MonoBehaviour
         PickUpText.SetActive(false);
     }
 
-    // Update is called once per frame
-    private void OnTriggerStay(Collider other)
+    public void Interact()
     {
-        if (other.gameObject.tag == "Player")
-        {
-            PickUpText.SetActive(true);
-            
-            if(Input.GetKey(KeyCode.E))
-            {
                 this.gameObject.SetActive(false);
                 FlashLightOnPlayer.SetActive(true);
-
-            }
-        }
     }
 }
