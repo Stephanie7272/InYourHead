@@ -29,12 +29,15 @@ public class KeyPad: MonoBehaviour
 
     public Image imgComp;
 
+    public GameObject BaneText;
+
     void Start()
     {
         anim = GetComponent<Animator>();
         codePanel.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         PickUpText.SetActive(false);
+        BaneText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -70,6 +73,7 @@ public class KeyPad: MonoBehaviour
         {
             CodeTextValue = "";
             imgComp.GetComponent<Image>().color = Color.red;
+            BaneText.SetActive(true);
         }
 
         if(Input.GetKey(KeyCode.E) && atDoor == true)
