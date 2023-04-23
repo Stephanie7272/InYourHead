@@ -18,11 +18,13 @@ public class PuzzleTwoPickUp : MonoBehaviour
     {
         CanvasPuzzleTwo.SetActive(false);
         isPickedUp = false;
+        GameObject.FindWithTag("Player").GetComponent<FirstPersonController>().enabled = true;
     }
     else
     {
         CanvasPuzzleTwo.SetActive(true);
         isPickedUp = true;
+        GameObject.FindWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
     }
   }
 }
