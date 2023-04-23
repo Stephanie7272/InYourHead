@@ -66169,7 +66169,8 @@ PrefabInstance:
       propertyPath: creak
       value: 
       objectReference: {fileID: 1633639361}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6128386650437564342, guid: 03b6bafda12944d418941c1a0e442d13, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 03b6bafda12944d418941c1a0e442d13, type: 3}
 --- !u!4 &1427417080879797911 stripped
@@ -66178,6 +66179,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1427417080879797910}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1427417080879797912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7133420797579933497, guid: 03b6bafda12944d418941c1a0e442d13,
+    type: 3}
+  m_PrefabInstance: {fileID: 1427417080879797910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1427417080879797913 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7962000684113786923, guid: 03b6bafda12944d418941c1a0e442d13,
+    type: 3}
+  m_PrefabInstance: {fileID: 1427417080879797910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1427417080879797914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427417080879797912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b170afefe7b8538429900bf89f0c7704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorV3: {fileID: 1427417080879797913}
+  openTrigger: 1
+  creak: {fileID: 1633639361}
 --- !u!1001 &8462759321764363932
 PrefabInstance:
   m_ObjectHideFlags: 0
