@@ -34,8 +34,6 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
             SceneManager.LoadScene("GameOver");
         }
     }

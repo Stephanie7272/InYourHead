@@ -31,10 +31,7 @@ public class DoorDelay : MonoBehaviour
             creak.Play();
             doorV3.Play("DoorOpenV3", 0, 0.0f);
             gameObject.SetActive(false);
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
             SceneManager.LoadScene("WinScreen");
-
         }
     }
 }
