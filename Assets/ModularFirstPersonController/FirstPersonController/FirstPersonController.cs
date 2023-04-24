@@ -22,6 +22,8 @@ public class FirstPersonController : MonoBehaviour
     public TextMeshProUGUI interactText;
     public float interactionRange;
 
+    public int paperScraps;
+
     #region Camera Movement Variables
 
     public Camera playerCamera;
