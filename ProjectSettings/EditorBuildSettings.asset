@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OutdoorsScene.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: a91bea82fdb4735439962725f228e75d
+  - enabled: 1
+    path: Assets/Scenes/CreditScreen.unity
+    guid: a5d46038bcd9c5a43b722898e252755e
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: b201b31676cb7ab42835525a932a8365
   m_configObjects: {}

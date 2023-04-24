@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorDelay : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class DoorDelay : MonoBehaviour
             creak.Play();
             doorV3.Play("DoorOpenV3", 0, 0.0f);
             gameObject.SetActive(false);
+            SceneManager.LoadScene("WinScreen");
+
         }
     }
 }

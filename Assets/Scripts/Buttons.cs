@@ -18,4 +18,19 @@ public class Buttons : MonoBehaviour
     {
         Application.Quit();
     }
+
+        public void Upstairs()
+    {
+        SceneManager.LoadScene("CreditScreen");
+    }
+
+    public void Basement()
+    {
+        SceneManager.LoadScene("CreditScreen");
+    }
+
+      public void StartOver()
+    {
+        SceneManager.LoadScene("OutdoorsScene");
+    }
 }

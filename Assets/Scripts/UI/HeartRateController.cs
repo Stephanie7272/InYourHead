@@ -9,6 +9,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using Unity.VisualScripting;
 using UnityEngine.Profiling;
+using UnityEngine.SceneManagement;
 
 public class HeartRateController : MonoBehaviour
 {
@@ -110,6 +111,8 @@ public class HeartRateController : MonoBehaviour
     {
         flatlined = true;
         currentHeartRate = 0;
+        SceneManager.LoadScene("GameOver");
+
     }
 
     private void UpdateUI()
