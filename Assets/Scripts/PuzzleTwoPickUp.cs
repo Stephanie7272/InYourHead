@@ -13,7 +13,9 @@ public class PuzzleTwoPickUp : MonoBehaviour
         CanvasPuzzleTwo.SetActive(false);
         isPickedUp = false;
         writing.SetActive(false);
-    }
+  }
+
+   
   void OnMouseDown()
   {
     if (isPickedUp)

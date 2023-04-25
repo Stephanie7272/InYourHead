@@ -10,6 +10,7 @@ public class DoorDelay : MonoBehaviour
     [SerializeField] private bool openTrigger = false;
 
     public AudioSource creak;
+    public AudioSource rattle;
 
 
     private void OnTriggerEnter(Collider other)
@@ -27,9 +28,12 @@ public class DoorDelay : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(2);
+            rattle.Play();
+            yield return new WaitForSeconds(3);
+            rattle.Stop();
             creak.Play();
             doorV3.Play("DoorOpenV3", 0, 0.0f);
+            yield return new WaitForSeconds(1);
             gameObject.SetActive(false);
             SceneManager.LoadScene("WinScreen");
         }
