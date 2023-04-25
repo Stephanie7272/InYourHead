@@ -13,6 +13,7 @@ public class Puzzle1PopUp : MonoBehaviour
     public GameObject image3;
     public GameObject key;
     public Button close1;
+    public GameObject writing;
 
 
     void Start()
@@ -23,6 +24,7 @@ public class Puzzle1PopUp : MonoBehaviour
         image3.SetActive(false);
         Button close = close1.GetComponent<Button>();
         close.onClick.AddListener(TaskOnClose);
+        writing.SetActive(false);
     }
 
     void OnMouseDown()
@@ -39,6 +41,8 @@ public class Puzzle1PopUp : MonoBehaviour
 
     void TaskOnClose()
     {
+        writing.SetActive(true);
+        
         canvas.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
